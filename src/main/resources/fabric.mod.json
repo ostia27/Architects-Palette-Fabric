@@ -2,18 +2,16 @@
   "schemaVersion": 1,
   "id": "architects_palette",
   "version": "${version}",
-
   "name": "Architect's Palette Fabric",
   "description": "A mod that adds new stylish and unique building blocks. This is a port of jsburg's mod",
   "authors": [
-    "Jsburg & Slomaxonical"
+    "Jsburg",
+    "Slomaxonical"
   ],
   "contact": {
-    "homepage": "",
     "sources": "https://github.com/Slomaxonical-907/Architects-Palette-Fabric"
   },
-
-  "license": "LGPL-3",
+  "license": "LGPL-3.0-only",
   "icon": "assets/architects_palette/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -32,20 +30,14 @@
     "emi": [
       "com.slomaxonical.architectspalette.compat.emi.APEmiPlugin"
     ]
-
   },
   "mixins": [
     "architectspalette.mixins.json"
   ],
-
   "depends": {
-    "fabricloader": ">=0.14.0",
-    "fabric": ">=0.60.0",
-    "minecraft": "1.19.x",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.19.x"
   },
   "accessWidener": "architectspalette.accesswidener"
 }
