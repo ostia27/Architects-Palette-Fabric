@@ -12,8 +12,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-import static com.slomaxonical.architectspalette.blocks.util.APBlockSettings.CHARGED;
 import static com.slomaxonical.architectspalette.blocks.abyssaline.AbyssalineBlock.CHARGE_SOURCE;
+import static com.slomaxonical.architectspalette.blocks.util.APBlockSettings.CHARGED;
 
 public class AbyssalineSlabBlock extends SlabBlock implements IAbyssalineChargeable {
 

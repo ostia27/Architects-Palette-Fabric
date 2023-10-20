@@ -1,6 +1,5 @@
 package com.slomaxonical.architectspalette.blocks;
 
-import com.slomaxonical.architectspalette.datagen.provider.APBlockTagProvider;
 import com.slomaxonical.architectspalette.registry.APTags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractFireBlock;

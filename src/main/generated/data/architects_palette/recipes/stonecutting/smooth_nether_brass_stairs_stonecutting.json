@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "architects_palette:smooth_nether_brass"
+  },
+  "result": "architects_palette:smooth_nether_brass_stairs"
+}

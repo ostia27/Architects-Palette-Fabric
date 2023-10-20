@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "architects_palette:config_enabled",
+      "config": "enableVerticalSlabs"
+    }
+  ],
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": [
+    {
+      "item": "architects_palette:basalt_tiles"
+    },
+    {
+      "item": "minecraft:polished_basalt"
+    },
+    {
+      "item": "minecraft:basalt"
+    }
+  ],
+  "result": "architects_palette:basalt_tile_vertical_slab"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "architects_palette:mushy_myonite_bricks"
+  },
+  "result": "architects_palette:mushy_myonite_brick_wall"
+}

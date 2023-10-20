@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "architects_palette:nether_brass_block"
+  },
+  "result": "architects_palette:nether_brass_wall"
+}

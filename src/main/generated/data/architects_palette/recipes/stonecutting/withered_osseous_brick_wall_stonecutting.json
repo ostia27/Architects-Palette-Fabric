@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "architects_palette:withered_bone"
+    },
+    {
+      "item": "architects_palette:withered_osseous_bricks"
+    }
+  ],
+  "result": "architects_palette:withered_osseous_brick_wall"
+}

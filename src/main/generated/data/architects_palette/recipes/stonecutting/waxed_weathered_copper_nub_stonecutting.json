@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:weathered_copper"
+  },
+  "result": "architects_palette:waxed_weathered_copper_nub"
+}

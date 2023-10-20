@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:twisted_button_from_twisted_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twisted_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:twisted_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_twisted_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:twisted_button_from_twisted_planks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

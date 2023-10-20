@@ -1,28 +1,36 @@
 package com.slomaxonical.architectspalette.registry;
 
 import com.slomaxonical.architectspalette.ArchitectsPalette;
-import com.slomaxonical.architectspalette.blocks.entrails.DrippyBlock;
-import com.slomaxonical.architectspalette.blocks.flint.*;
-import com.slomaxonical.architectspalette.blocks.util.APBlockSettings;
-import com.slomaxonical.architectspalette.blocks.abyssaline.*;
 import com.slomaxonical.architectspalette.blocks.*;
+import com.slomaxonical.architectspalette.blocks.abyssaline.AbyssalineBlock;
+import com.slomaxonical.architectspalette.blocks.abyssaline.AbyssalineLampBlock;
+import com.slomaxonical.architectspalette.blocks.abyssaline.AbyssalinePillarBlock;
+import com.slomaxonical.architectspalette.blocks.abyssaline.ChiseledAbyssalineBlock;
+import com.slomaxonical.architectspalette.blocks.entrails.DrippyBlock;
+import com.slomaxonical.architectspalette.blocks.flint.FlintBlock;
+import com.slomaxonical.architectspalette.blocks.flint.FlintPillarBlock;
+import com.slomaxonical.architectspalette.blocks.util.APBlockSettings;
 import com.slomaxonical.architectspalette.blocks.util.DirectionalFacingBlock;
+import com.slomaxonical.architectspalette.features.TwistedTree;
 import com.slomaxonical.architectspalette.registry.util.BlockSetBase;
 import com.slomaxonical.architectspalette.registry.util.ChangeGroup;
-import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
-import com.slomaxonical.architectspalette.features.TwistedTree;
 import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
+import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
+import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.List;
 
+import static com.slomaxonical.architectspalette.ArchitectsPalette.AP_GROUP;
 import static com.slomaxonical.architectspalette.ArchitectsPalette.CONFIGS;
 import static com.slomaxonical.architectspalette.registry.util.RegistryUtil.*;
 import static com.slomaxonical.architectspalette.registry.util.StoneBlockSet.SetComponent.*;
@@ -34,10 +42,12 @@ public class APBlocks implements BlockRegistryContainer {
     @Override
     public void postProcessField(String namespace, Block block, String identifier, Field field) {
         if (field.isAnnotationPresent(NoBlockItem.class)) return;
-        int group = 0;
-        if (field.isAnnotationPresent(ChangeGroup.class)) group = field.getAnnotation(ChangeGroup.class).value();
-        BlockItem blockItem = new BlockItem(block, new Item.Settings().group(ItemGroup.GROUPS[group]));
-        Registry.register(Registry.ITEM, new Identifier(namespace,identifier), blockItem);
+        //int group = 0;
+        //if (field.isAnnotationPresent(ChangeGroup.class)) group = field.getAnnotation(ChangeGroup.class).value();
+        BlockItem blockItem = !(namespace.contains("vertical") && !CONFIGS.enableVerticalSlabs())
+                ? new BlockItem(block, new OwoItemSettings().group(AP_GROUP))
+                : new BlockItem(block, new OwoItemSettings());
+        Registry.register(Registries.ITEM, new Identifier(namespace,identifier), blockItem);
         if (!(namespace.contains("vertical") && !CONFIGS.enableVerticalSlabs())) ArchitectsPalette.ITEMGROUP_LIST.add(blockItem);
         if (field.isAnnotationPresent(BlockSetBase.class)) new StoneBlockSet(block, field.getAnnotation(BlockSetBase.class).parts());
     }
@@ -129,7 +139,7 @@ public class APBlocks implements BlockRegistryContainer {
     @ChangeGroup
     public static final Block NETHER_BRASS_CHAIN = new ChainBlock(FabricBlockSettings.copyOf(APBlockSettings.NETHER_BRASS).sounds(BlockSoundGroup.CHAIN));
     @ChangeGroup
-    public static final Block NETHER_BRASS_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.METAL, MapColor.LIME).strength(4.0F, 10.0F).sounds(BlockSoundGroup.COPPER).requiresTool().luminance((a)->13));
+    public static final Block NETHER_BRASS_LANTERN = new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.LIME).strength(4.0F, 10.0F).sounds(BlockSoundGroup.COPPER).requiresTool().luminance((a)->13));
     @NoBlockItem
     public static final Block NETHER_BRASS_TORCH = new TorchBlock(APBlockSettings.BRASS_TORCH, APParticles.GREEN_FLAME);
     @NoBlockItem
@@ -164,7 +174,7 @@ public class APBlocks implements BlockRegistryContainer {
     public static final Block SPOOL = new PillarBlock(FabricBlockSettings.copy(Blocks.WHITE_WOOL));
 
     // Scute Block
-    public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.STONE, MapColor.LIME).strength(5.0F, 6.0F).sounds(BlockSoundGroup.BASALT));
+    public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.create().mapColor(MapColor.LIME).strength(5.0F, 6.0F).sounds(BlockSoundGroup.BASALT));
 
     // Polished Packed Ice
     @BlockSetBase(parts = {SLAB,VERTICAL_SLAB,STAIRS,WALL})
@@ -289,15 +299,15 @@ public class APBlocks implements BlockRegistryContainer {
     @ChangeGroup
     public static final Block         TWISTED_FENCE = new FenceBlock(APBlockSettings.TwistedWood());
     @ChangeGroup
-    public static final Block    TWISTED_FENCE_GATE = new FenceGateBlock(APBlockSettings.TwistedWood());
+    public static final Block    TWISTED_FENCE_GATE = new FenceGateBlock(APBlockSettings.TwistedWood(), WoodType.OAK);
     @ChangeGroup(2)
-    public static final Block          TWISTED_DOOR = new DoorBlock(APBlockSettings.TwistedWood().nonOpaque());
+    public static final Block          TWISTED_DOOR = new DoorBlock(APBlockSettings.TwistedWood().nonOpaque(), WoodType.OAK.setType());
     @ChangeGroup(2)
-    public static final Block      TWISTED_TRAPDOOR = new TrapdoorBlock(APBlockSettings.TwistedWood().nonOpaque());
+    public static final Block      TWISTED_TRAPDOOR = new TrapdoorBlock(APBlockSettings.TwistedWood().nonOpaque(), WoodType.OAK.setType());
     @ChangeGroup(2)
-    public static final Block        TWISTED_BUTTON = new WoodenButtonBlock(APBlockSettings.TwistedWood(true));
+    public static final Block        TWISTED_BUTTON = new ButtonBlock(APBlockSettings.TwistedWood(true), WoodType.OAK.setType(), 20, true);
     @ChangeGroup(2)
-    public static final Block TWISTED_PRESSURE_PLATE = new PressurePlateBlock((PressurePlateBlock.ActivationRule.EVERYTHING), APBlockSettings.TwistedWood(true));
+    public static final Block TWISTED_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, APBlockSettings.TwistedWood(true), WoodType.OAK.setType());
 
 
     @ChangeGroup
@@ -358,17 +368,6 @@ public class APBlocks implements BlockRegistryContainer {
     public static final Block WAXED_WEATHERED_COPPER_NUB = makeCopperNub(WEATHERED,Blocks.WEATHERED_COPPER);
     @ChangeGroup
     public static final Block WAXED_OXIDIZED_COPPER_NUB = makeCopperNub(OXIDIZED,Blocks.OXIDIZED_COPPER);
-    //Boards
-    public static final Block OAK_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS));
-    public static final Block BIRCH_BOARDS = new Block(FabricBlockSettings.copy(Blocks.BIRCH_PLANKS));
-    public static final Block SPRUCE_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.SPRUCE_PLANKS));
-    public static final Block JUNGLE_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.JUNGLE_PLANKS));
-    public static final Block DARK_OAK_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.DARK_OAK_PLANKS));
-    public static final Block ACACIA_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.ACACIA_PLANKS));
-    public static final Block MANGROVE_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.MANGROVE_PLANKS));
-    public static final Block CRIMSON_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.CRIMSON_PLANKS));
-    public static final Block WARPED_BOARDS = new BoardBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS));
-    public static final Block TWISTED_BOARDS = new BoardBlock(APBlockSettings.TwistedWood());
     //Railings
     @ChangeGroup
     public static final Block OAK_RAILING = new RailingBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS));

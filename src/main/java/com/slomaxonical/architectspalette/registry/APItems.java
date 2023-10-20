@@ -5,9 +5,11 @@ import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.item.Item;
+import net.minecraft.item.VerticallyAttachableBlockItem;
+import net.minecraft.util.math.Direction;
+
+import static com.slomaxonical.architectspalette.ArchitectsPalette.AP_GROUP;
 
 public class APItems implements ItemRegistryContainer {
     public static final Item ALGAL_BLEND = LinkItem(APBlocks.ALGAL_BRICKS);
@@ -16,7 +18,7 @@ public class APItems implements ItemRegistryContainer {
     public static final Item NETHER_BRASS_BLEND = LinkItem(APBlocks.NETHER_BRASS_BLOCK);
     public static final Item NETHER_BRASS_NUGGET = LinkItem(APBlocks.NETHER_BRASS_BLOCK);
     public static final Item NETHER_BRASS_INGOT = LinkItem(APBlocks.NETHER_BRASS_BLOCK);
-    public static final Item NETHER_BRASS_TORCH = LinkItem(new WallStandingBlockItem(APBlocks.NETHER_BRASS_TORCH, APBlocks.NETHER_BRASS_WALL_TORCH,new FabricItemSettings().group(ItemGroup.DECORATIONS)),APBlocks.NETHER_BRASS_LANTERN);
+    public static final Item NETHER_BRASS_TORCH = LinkItem(new VerticallyAttachableBlockItem(APBlocks.NETHER_BRASS_TORCH, APBlocks.NETHER_BRASS_WALL_TORCH, new FabricItemSettings(), Direction.NORTH), APBlocks.NETHER_BRASS_LANTERN);
 
     public static final Item SUNMETAL_BLEND = LinkItem(APBlocks.SUNMETAL_BLOCK);
     public static final Item SUNMETAL_BRICK = LinkItem(APBlocks.SUNMETAL_BLOCK);
@@ -35,7 +37,7 @@ public class APItems implements ItemRegistryContainer {
         return item;
     }
     public static Item LinkItem(Block block){
-        Item item = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+        Item item = new Item(new OwoItemSettings().group(AP_GROUP));
         int index = ArchitectsPalette.ITEMGROUP_LIST.indexOf(block.asItem());
         ArchitectsPalette.ITEMGROUP_LIST.add(index, item);
         return item;

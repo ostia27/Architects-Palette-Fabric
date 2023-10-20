@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "B": {
+      "item": "architects_palette:withered_bone"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "#B#",
+    "B#B"
+  ],
+  "result": {
+    "item": "architects_palette:wither_lamp"
+  },
+  "show_notification": true
+}

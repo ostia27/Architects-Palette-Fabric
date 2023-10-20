@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:tuff"
+    },
+    "$": {
+      "item": "minecraft:glow_lichen"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#$#",
+    " # "
+  ],
+  "result": {
+    "count": 2,
+    "item": "architects_palette:tuff_lamp"
+  },
+  "show_notification": true
+}

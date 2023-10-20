@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "architects_palette:polished_glowstone"
+  },
+  "result": "architects_palette:polished_glowstone_nub"
+}

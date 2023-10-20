@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_nugget"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#I#",
+    " # "
+  ],
+  "result": {
+    "item": "architects_palette:plating_block"
+  },
+  "show_notification": true
+}

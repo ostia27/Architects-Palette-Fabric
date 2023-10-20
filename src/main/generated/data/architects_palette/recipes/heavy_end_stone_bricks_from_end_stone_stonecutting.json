@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:end_stone"
+  },
+  "result": "architects_palette:heavy_end_stone_bricks"
+}

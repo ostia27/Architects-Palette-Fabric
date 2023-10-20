@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_nugget"
+    },
+    "d": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "p": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "pattern": [
+    " p ",
+    "#d#"
+  ],
+  "result": {
+    "item": "architects_palette:redstone_cage_lantern"
+  },
+  "show_notification": true
+}

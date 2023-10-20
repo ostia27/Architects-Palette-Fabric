@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "$": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "pattern": [
+    "$C$",
+    "#C#",
+    "$C$"
+  ],
+  "result": {
+    "count": 8,
+    "item": "architects_palette:abyssaline_lamp"
+  },
+  "show_notification": true
+}

@@ -48,7 +48,7 @@ public class CageLanternBlock extends Block implements Waterloggable {
             .build();
 
     public CageLanternBlock(Settings properties, int poweredLightLevel) {
-        super(properties.luminance(getLightValueLit(poweredLightLevel)));
+        super(properties.luminance(getLightValueLit(poweredLightLevel)).pistonBehavior(PistonBehavior.DESTROY));
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LIT, true).with(WATERLOGGED, false).with(INVERTED, false));
     }
 
@@ -72,7 +72,7 @@ public class CageLanternBlock extends Block implements Waterloggable {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState facingState, WorldAccess worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (state.get(WATERLOGGED)) {
-            worldIn.createAndScheduleFluidTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+            worldIn.scheduleFluidTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
         if (state.get(FACING) == facing && !state.canPlaceAt(worldIn, currentPos)) {return Blocks.AIR.getDefaultState();}
         return state;
@@ -94,10 +94,6 @@ public class CageLanternBlock extends Block implements Waterloggable {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-    @Override
-    public PistonBehavior getPistonBehavior(BlockState state) {
-        return PistonBehavior.DESTROY;
     }
 
     @Override
@@ -122,7 +118,7 @@ public class CageLanternBlock extends Block implements Waterloggable {
             if (lit != shouldBeLit) {
                 if (lit) {
                     worldIn.setBlockState(pos, state.cycle(LIT), 2);
-                    worldIn.createAndScheduleBlockTick(pos, this, 2);
+                    worldIn.scheduleBlockTick(pos, this, 2);
                 } else {
                     // fuck if i know what this does, i copied it from the redstone lamp
                     worldIn.setBlockState(pos, state.cycle(LIT), 2);

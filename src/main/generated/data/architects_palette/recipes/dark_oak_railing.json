@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boards",
+  "key": {
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#|#"
+  ],
+  "result": {
+    "count": 9,
+    "item": "architects_palette:dark_oak_railing"
+  },
+  "show_notification": true
+}

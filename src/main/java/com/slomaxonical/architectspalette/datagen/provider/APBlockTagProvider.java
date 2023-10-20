@@ -1,31 +1,26 @@
 package com.slomaxonical.architectspalette.datagen.provider;
 
-import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
-import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
 import com.slomaxonical.architectspalette.registry.APBlocks;
 import com.slomaxonical.architectspalette.registry.APTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
+import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 
-import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import static com.slomaxonical.architectspalette.registry.util.StoneBlockSet.SetComponent.*;
 
 public class APBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-    public APBlockTagProvider(FabricDataGenerator dataGenerator) {
-        super(dataGenerator);
+    public APBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
-    private FabricTagBuilder<Block> getOrCreateTagBuilder(Identifier id) {
-        TagKey<Block> tag = TagKey.of(Registry.BLOCK_KEY, id);
-        return this.getOrCreateTagBuilder(tag);
-    }
     private void addSets(TagKey<Block> tag, Block... baseBlocks) {
         addSets(tag,true,true,true,true,baseBlocks);
     }
@@ -56,7 +51,7 @@ public class APBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         }
     }
     @Override
-    protected void generateTags() {
+    protected void configure(RegistryWrapper.WrapperLookup arg) {
         //add Pickaxe sets here
         addSets(BlockTags.PICKAXE_MINEABLE,
                 APBlocks.ABYSSALINE_BRICKS,
@@ -183,25 +178,18 @@ public class APBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         addSets(BlockTags.AXE_MINEABLE,APBlocks.ENTRAILS);
         this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .add(APBlocks.ACACIA_BOARDS)
                 .add(APBlocks.ACACIA_RAILING)
                 .add(APBlocks.ACACIA_TOTEM_WING)
-                .add(APBlocks.BIRCH_BOARDS)
                 .add(APBlocks.BIRCH_RAILING)
                 .add(APBlocks.BLANK_ACACIA_TOTEM)
                 .add(APBlocks.CHARCOAL_BLOCK)
                 .add(APBlocks.COD_LOG)
                 .add(APBlocks.COD_SCALES)
-                .add(APBlocks.CRIMSON_BOARDS)
                 .add(APBlocks.CRIMSON_RAILING)
-                .add(APBlocks.DARK_OAK_BOARDS)
                 .add(APBlocks.DARK_OAK_RAILING)
                 .add(APBlocks.GRINNING_ACACIA_TOTEM)
-                .add(APBlocks.JUNGLE_BOARDS)
                 .add(APBlocks.JUNGLE_RAILING)
-                .add(APBlocks.MANGROVE_BOARDS)
                 .add(APBlocks.MANGROVE_RAILING)
-                .add(APBlocks.OAK_BOARDS)
                 .add(APBlocks.OAK_RAILING)
                 .add(APBlocks.PLACID_ACACIA_TOTEM)
                 .add(APBlocks.ROTTEN_FLESH_BLOCK)
@@ -209,11 +197,9 @@ public class APBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(APBlocks.SALMON_SCALES)
                 .add(APBlocks.SHOCKED_ACACIA_TOTEM)
                 .add(APBlocks.SPOOL)
-                .add(APBlocks.SPRUCE_BOARDS)
                 .add(APBlocks.SPRUCE_RAILING)
                 .add(APBlocks.STRIPPED_TWISTED_LOG)
                 .add(APBlocks.STRIPPED_TWISTED_WOOD)
-                .add(APBlocks.TWISTED_BOARDS)
                 .add(APBlocks.TWISTED_BUTTON)
                 .add(APBlocks.TWISTED_DOOR)
                 .add(APBlocks.TWISTED_FENCE)
@@ -223,7 +209,6 @@ public class APBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(APBlocks.TWISTED_RAILING)
                 .add(APBlocks.TWISTED_TRAPDOOR)
                 .add(APBlocks.TWISTED_WOOD)
-                .add(APBlocks.WARPED_BOARDS)
                 .add(APBlocks.WARPED_RAILING);
         addSets(BlockTags.AXE_MINEABLE,APBlocks.TWISTED_PLANKS);
 

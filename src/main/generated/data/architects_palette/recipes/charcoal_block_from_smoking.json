@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.175,
+  "ingredient": {
+    "tag": "minecraft:logs_that_burn"
+  },
+  "result": "architects_palette:charcoal_block"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "architects_palette:sunmetal_blend"
+    },
+    "$": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "architects_palette:sunstone"
+  },
+  "show_notification": true
+}

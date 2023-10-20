@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "$": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "$#$",
+    "# #",
+    "$#$"
+  ],
+  "result": {
+    "count": 16,
+    "item": "architects_palette:abyssaline"
+  },
+  "show_notification": true
+}

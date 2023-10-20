@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:snow_block"
+    },
+    "$": {
+      "item": "minecraft:gravel"
+    }
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "architects_palette:coarse_snow"
+  },
+  "show_notification": true
+}

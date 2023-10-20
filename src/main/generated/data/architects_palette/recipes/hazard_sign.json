@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_nugget"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "#I#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "architects_palette:hazard_sign"
+  },
+  "show_notification": true
+}

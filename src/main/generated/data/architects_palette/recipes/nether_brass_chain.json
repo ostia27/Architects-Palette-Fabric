@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "i": {
+      "item": "architects_palette:nether_brass_ingot"
+    },
+    "n": {
+      "item": "architects_palette:nether_brass_nugget"
+    }
+  },
+  "pattern": [
+    "n",
+    "i",
+    "n"
+  ],
+  "result": {
+    "item": "architects_palette:nether_brass_chain"
+  },
+  "show_notification": true
+}

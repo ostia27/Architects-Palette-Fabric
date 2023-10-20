@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "architects_palette:charcoal_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:charcoal"
+  }
+}

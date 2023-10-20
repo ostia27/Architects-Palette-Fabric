@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boards",
+  "key": {
+    "#": {
+      "item": "architects_palette:withered_bone"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 3,
+    "item": "architects_palette:withered_bone_block"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "architects_palette:warping",
+  "dimension": "minecraft:the_nether",
+  "ingredient": [
+    {
+      "item": "architects_palette:sunstone"
+    }
+  ],
+  "result": {
+    "item": "architects_palette:moonstone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:ender_eye"
+  },
+  "result": "architects_palette:nub_of_ender"
+}

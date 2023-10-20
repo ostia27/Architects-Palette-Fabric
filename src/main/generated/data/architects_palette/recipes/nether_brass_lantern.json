@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "architects_palette:nether_brass_torch"
+    },
+    "X": {
+      "item": "architects_palette:nether_brass_nugget"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "item": "architects_palette:nether_brass_lantern"
+  },
+  "show_notification": true
+}

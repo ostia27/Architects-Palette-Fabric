@@ -28,7 +28,7 @@ public abstract class ThrownEntityMixin extends ProjectileEntity {
         HitResult hitResult = ProjectileUtil.getCollision(this, this::canHit);
         if (hitResult.getType() == HitResult.Type.BLOCK) {
             BlockHitResult blockHitResult = (BlockHitResult) hitResult;
-            BlockState state = this.world.getBlockState(blockHitResult.getBlockPos());
+            BlockState state = this.getWorld().getBlockState(blockHitResult.getBlockPos());
             if (state.isIn(APTags.WIZARD_BLOCKS) &&  this.getVelocity().length() > 0.25){
                 super.onCollision(hitResult);
                 cir.cancel();

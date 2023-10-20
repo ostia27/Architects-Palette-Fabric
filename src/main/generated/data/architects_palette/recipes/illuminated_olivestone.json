@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "architects_palette:olivestone"
+    },
+    "$": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 2,
+    "item": "architects_palette:illuminated_olivestone"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone_bricks"
+    },
+    "$": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "architects_palette:gold_ore_bricks"
+  },
+  "show_notification": true
+}

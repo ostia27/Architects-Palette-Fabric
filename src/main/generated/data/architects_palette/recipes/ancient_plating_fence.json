@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "architects_palette:ancient_plating"
+    },
+    "I": {
+      "item": "architects_palette:nether_brass_ingot"
+    }
+  },
+  "pattern": [
+    "#I#",
+    "#I#"
+  ],
+  "result": {
+    "count": 6,
+    "item": "architects_palette:ancient_plating_fence"
+  },
+  "show_notification": true
+}

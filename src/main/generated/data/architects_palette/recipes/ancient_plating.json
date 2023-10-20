@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "architects_palette:nether_brass_ingot"
+    },
+    "N": {
+      "item": "architects_palette:nether_brass_nugget"
+    },
+    "S": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "pattern": [
+    "INI",
+    "NSN",
+    "INI"
+  ],
+  "result": {
+    "item": "architects_palette:ancient_plating"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "architects_palette:config_enabled",
+      "config": "enableVerticalSlabs"
+    }
+  ],
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": [
+    {
+      "item": "architects_palette:hadaline"
+    },
+    {
+      "item": "architects_palette:hadaline_tiles"
+    }
+  ],
+  "result": "architects_palette:hadaline_tile_vertical_slab"
+}

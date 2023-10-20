@@ -12,9 +12,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-
-import static com.slomaxonical.architectspalette.blocks.util.APBlockSettings.CHARGED;
 import static com.slomaxonical.architectspalette.blocks.abyssaline.AbyssalineBlock.CHARGE_SOURCE;
+import static com.slomaxonical.architectspalette.blocks.util.APBlockSettings.CHARGED;
 
 public class AbyssalinePillarBlock extends PillarBlock implements IAbyssalineChargeable {
 //	public static final EnumProperty<PillarSide> CHARGE_SIDE = EnumProperty.create("charge_side", PillarSide.class);

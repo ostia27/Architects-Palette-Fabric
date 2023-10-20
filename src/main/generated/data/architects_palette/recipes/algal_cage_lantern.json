@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "architects_palette:algal_brick"
+    },
+    "d": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "p": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "pattern": [
+    " p ",
+    "#d#"
+  ],
+  "result": {
+    "item": "architects_palette:algal_cage_lantern"
+  },
+  "show_notification": true
+}

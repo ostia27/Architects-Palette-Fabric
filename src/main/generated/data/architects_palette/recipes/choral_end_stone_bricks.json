@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:end_stone_bricks"
+      },
+      {
+        "item": "minecraft:chorus_fruit"
+      }
+    ]
+  ],
+  "result": {
+    "item": "architects_palette:choral_end_stone_bricks"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boards",
+  "key": {
+    "#": {
+      "item": "minecraft:oak_planks"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#|#"
+  ],
+  "result": {
+    "count": 9,
+    "item": "architects_palette:oak_railing"
+  },
+  "show_notification": true
+}

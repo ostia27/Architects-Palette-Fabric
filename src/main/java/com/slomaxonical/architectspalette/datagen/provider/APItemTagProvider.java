@@ -3,24 +3,25 @@ package com.slomaxonical.architectspalette.datagen.provider;
 import com.slomaxonical.architectspalette.registry.APBlocks;
 import com.slomaxonical.architectspalette.registry.APItems;
 import com.slomaxonical.architectspalette.registry.APTags;
-import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
-import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.ItemTags;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
 
-import static com.slomaxonical.architectspalette.registry.util.StoneBlockSet.SetComponent.*;
-import static com.slomaxonical.architectspalette.registry.util.StoneBlockSet.SetComponent.FENCE;
+import java.util.concurrent.CompletableFuture;
 
 public class APItemTagProvider extends FabricTagProvider.ItemTagProvider {
-    public APItemTagProvider(FabricDataGenerator dataGenerator, @Nullable BlockTagProvider blockTagProvider) {super(dataGenerator, blockTagProvider);}
+    public APItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture, @Nullable BlockTagProvider blockTagProvider) {
+        super(output, completableFuture, blockTagProvider);
+    }
+
     @Override
-    protected void generateTags() {
+    protected void configure(RegistryWrapper.WrapperLookup arg) {
 //        for (StoneBlockSet set : RegistryUtil.BlockSets.values()){
 //            this.getOrCreateTagBuilder(APTags.SET_TAB).add(set.getBase().asItem());
 //            if (set.getPart(SLAB) !=null) this.getOrCreateTagBuilder(APTags.SET_TAB).add(set.getPart(SLAB).asItem());
@@ -55,8 +56,8 @@ public class APItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(APBlocks.OLIVESTONE_TILES.asItem());
 
         this.getOrCreateTagBuilder(APTags.OLIVESTONE_SLABS)
-                .add(Registry.BLOCK.get(new Identifier("architects_palette:olivestone_brick_slab")).asItem())
-                .add(Registry.BLOCK.get(new Identifier("architects_palette:olivestone_tile_slab")).asItem());
+                .add(Registries.BLOCK.get(new Identifier("architects_palette:olivestone_brick_slab")).asItem())
+                .add(Registries.BLOCK.get(new Identifier("architects_palette:olivestone_tile_slab")).asItem());
 
         this.getOrCreateTagBuilder(APTags.WITHERED_BONES).add(APItems.WITHERED_BONE);
     }

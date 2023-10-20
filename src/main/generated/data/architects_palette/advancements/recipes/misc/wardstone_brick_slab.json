@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "architects_palette:wardstone_brick_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wardstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:wardstone_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wardstone_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "architects_palette:wardstone_brick_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

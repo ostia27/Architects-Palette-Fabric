@@ -1,12 +1,13 @@
 package com.slomaxonical.architectspalette.registry;
 
 import com.slomaxonical.architectspalette.ArchitectsPalette;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Lazy;
-import net.minecraft.util.registry.Registry;
 
 
 public class APSounds {
@@ -20,7 +21,7 @@ public class APSounds {
 
     private static SoundEvent createSounds(String key) {
         Identifier id = new Identifier(ArchitectsPalette.MOD_ID, key);
-        return Registry.register(Registry.SOUND_EVENT,id, new SoundEvent(id));
+        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
     public static void registerSounds(){}
 

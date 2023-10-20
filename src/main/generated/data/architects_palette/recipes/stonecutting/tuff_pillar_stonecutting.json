@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "architects_palette:tuff_bricks"
+    },
+    {
+      "item": "minecraft:tuff"
+    }
+  ],
+  "result": "architects_palette:tuff_pillar"
+}

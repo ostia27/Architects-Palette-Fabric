@@ -60,7 +60,7 @@ public class SunstoneBlock extends Block {
             Double chance = CONFIGS.sunstoneSpreadChance();
             if (chance > 0) {
                 Random rand = worldIn.getRandom();
-                worldIn.createAndScheduleBlockTick(currentPos, this, (int) (2 + Math.floor(rand.nextDouble() * 6)));
+                worldIn.scheduleBlockTick(currentPos, this, (int) (2 + Math.floor(rand.nextDouble() * 6)));
             }
         }
         return super.getStateForNeighborUpdate(stateIn, facing, facingState, worldIn, currentPos, facingPos);

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_ore_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:diamond_ore_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stonecutting/chiseled_diamond_ore_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_diamond_ore_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stonecutting/chiseled_diamond_ore_bricks_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

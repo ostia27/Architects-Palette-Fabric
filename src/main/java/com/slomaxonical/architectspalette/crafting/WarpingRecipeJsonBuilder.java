@@ -6,8 +6,8 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -59,7 +59,7 @@ public class WarpingRecipeJsonBuilder {
             json.add("ingredient", jsonArray);
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("item", Registry.ITEM.getId(this.output).toString());
+            jsonObject.addProperty("item", Registries.ITEM.getId(this.output).toString());
             json.add("result",jsonObject);
 
             json.addProperty("dimension", this.dimension.toString());

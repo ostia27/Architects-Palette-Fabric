@@ -6,11 +6,12 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
+
 import java.util.Optional;
 
 
@@ -20,16 +21,16 @@ public class ChangeDimensionHandler {
         RegistryKey<World> dimension = server.getRegistryKey();
         Identifier dimensionId = dimension.getValue();
         ItemStack item = itemIn.getStack();
-        for (Recipe<?> recipe : itemIn.world.getRecipeManager().listAllOfType(WarpingRecipe.TYPE)) {
+        for (Recipe<?> recipe : itemIn.getWorld().getRecipeManager().listAllOfType(WarpingRecipe.TYPE)) {
             if (recipe instanceof WarpingRecipe) {
                 WarpingRecipe warpingRecipe = (WarpingRecipe) recipe;
                  //compareTo returns 0 if they're the same
                 boolean dimensionPassed = dimensionId.compareTo(warpingRecipe.getDimension()) == 0;
-                dimensionPassed = dimensionPassed || (itemIn.world.getRegistryKey().getValue().compareTo(warpingRecipe.getDimension()) == 0);
+                dimensionPassed = dimensionPassed || (itemIn.getWorld().getRegistryKey().getValue().compareTo(warpingRecipe.getDimension()) == 0);
                 if (dimensionPassed && (warpingRecipe.getInput().test(item))) {
-                    itemIn.world.playSound(null, itemIn.getX(), itemIn.getY(), itemIn.getZ(), APSounds.ITEM_WARPS, SoundCategory.BLOCKS, 1F, 1F);
+                    itemIn.getWorld().playSound(null, itemIn.getX(), itemIn.getY(), itemIn.getZ(), APSounds.ITEM_WARPS, SoundCategory.BLOCKS, 1F, 1F);
                     int n = item.getCount();
-                    ItemStack out = warpingRecipe.getOutput().copy();
+                    ItemStack out = warpingRecipe.getOutput(itemIn.getWorld().getRegistryManager()).copy();
                     out.setCount(n);
                     itemIn.setStack(out);
                     break;
@@ -53,7 +54,7 @@ public class ChangeDimensionHandler {
 
     public static ItemStack getTransformedItem(ItemStack itemIn, World world) {
         Optional<WarpingRecipe> recipe = getRecipe(itemIn, world);
-        return recipe.map(warpingRecipe -> warpingRecipe.craft(transformationInv)).orElse(null);
+        return recipe.map(warpingRecipe -> warpingRecipe.craft(transformationInv, world.getRegistryManager())).orElse(null);
     }
 
 
@@ -64,7 +65,7 @@ public class ChangeDimensionHandler {
         if (resultStack != null) {
             resultStack.setCount(baseStack.getCount());
             itemIn.setStack(resultStack);
-            itemIn.world.playSound(null, itemIn.getX(), itemIn.getY(), itemIn.getZ(), APSounds.ITEM_WARPS, SoundCategory.BLOCKS, 1F, 1F);
+            itemIn.getWorld().playSound(null, itemIn.getX(), itemIn.getY(), itemIn.getZ(), APSounds.ITEM_WARPS, SoundCategory.BLOCKS, 1F, 1F);
         }
     }
 

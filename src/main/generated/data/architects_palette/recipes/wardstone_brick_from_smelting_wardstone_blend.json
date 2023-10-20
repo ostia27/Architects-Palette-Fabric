@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "architects_palette:wardstone_blend"
+  },
+  "result": "architects_palette:wardstone_brick"
+}

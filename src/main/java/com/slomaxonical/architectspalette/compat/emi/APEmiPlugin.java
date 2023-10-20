@@ -8,7 +8,6 @@ import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.render.EmiRenderable;
 import dev.emi.emi.api.stack.EmiStack;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.util.Identifier;
 
 public class APEmiPlugin implements EmiPlugin {
@@ -27,7 +26,7 @@ public class APEmiPlugin implements EmiPlugin {
     private static EmiRenderable simplifiedRenderer() {
         return (matrices, x, y, delta) -> {
             RenderSystem.setShaderTexture(0, new Identifier("architects_palette", "textures/gui/widget.png"));
-            DrawableHelper.drawTexture(matrices, x, y, 0, 0, 16, 16, 16, 16);
+            matrices.drawTexture(new Identifier("architects_palette", "textures/gui/widget.png"), x, y, 0, 0, 16, 16, 16, 16);
         };
     }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": [
+    {
+      "item": "minecraft:sandstone"
+    },
+    {
+      "item": "minecraft:cut_sandstone"
+    }
+  ],
+  "result": "architects_palette:sandstone_nub"
+}

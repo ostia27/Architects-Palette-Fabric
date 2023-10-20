@@ -1,21 +1,7 @@
 package com.slomaxonical.architectspalette.features;
 
-import com.slomaxonical.architectspalette.registry.APBlocks;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
-
-import static com.slomaxonical.architectspalette.ArchitectsPalette.CONFIGS;
-
-
 public class APConfiguredFeatures {
+    /*
     private static final CrystalClusterConfig HELIODOR_CLUSTER_CONFIG = new CrystalClusterConfig(1, 7, APBlocks.HELIODOR_ROD.getDefaultState(),true, Blocks.BASALT.getDefaultState());
     public static final RegistryEntry<ConfiguredFeature<CrystalClusterConfig, ?>> HELIODOR_CLUSTER= ConfiguredFeatures.register("heliodor_cluster", APFeatures.CRYSTAL_CLUSTER, HELIODOR_CLUSTER_CONFIG);
     public static final RegistryEntry<PlacedFeature> HELIODOR_CLUSTER_PLACED = PlacedFeatures.register("heliodor_cluster",
@@ -74,5 +60,6 @@ public class APConfiguredFeatures {
 //        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ArchitectsPalette.MOD_ID, name), configuredFeature);
 //        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(ArchitectsPalette.MOD_ID, name), placedFeature);
 //    }
+     */
 }
 

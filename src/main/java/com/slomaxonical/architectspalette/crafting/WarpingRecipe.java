@@ -7,12 +7,14 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-
 import org.jetbrains.annotations.Nullable;
+
 import java.util.Optional;
 
 import static com.slomaxonical.architectspalette.ArchitectsPalette.MOD_ID;
@@ -54,8 +56,8 @@ public class WarpingRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack craft(Inventory inv) {
-        return this.getOutput().copy();
+    public ItemStack craft(Inventory inventory, DynamicRegistryManager registryManager) {
+        return this.getOutput(registryManager).copy();
     }
 
     @Override
@@ -63,9 +65,13 @@ public class WarpingRecipe implements Recipe<Inventory> {
         return false;
     }
 
-    @Override
     public ItemStack getOutput() {
         return output.copy();
+    }
+
+    @Override
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return getOutput();
     }
     @Override
     public Identifier getId() {
@@ -144,10 +150,10 @@ public class WarpingRecipe implements Recipe<Inventory> {
     }
 
     public static <S extends RecipeSerializer<T>, T extends Recipe<?>> S registerSerializer(S serializer) {
-        return Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, "warping"), serializer);
+        return Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, "warping"), serializer);
     }
     public static <T extends Recipe<?>> RecipeType<T> registerType() {
-        return Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, "warping"), new RecipeType<T>() {
+        return Registry.register(Registries.RECIPE_TYPE, new Identifier(MOD_ID, "warping"), new RecipeType<T>() {
             public String toString() {
                 return ArchitectsPalette.MOD_ID.concat(":warping");
             }

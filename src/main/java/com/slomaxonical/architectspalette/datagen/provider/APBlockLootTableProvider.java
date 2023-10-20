@@ -1,14 +1,13 @@
 package com.slomaxonical.architectspalette.datagen.provider;
 
+import com.slomaxonical.architectspalette.registry.APBlocks;
 import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
 import com.slomaxonical.architectspalette.registry.util.StoneBlockSet;
-import com.slomaxonical.architectspalette.registry.APBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
-import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -28,8 +27,8 @@ import java.util.stream.Stream;
 import static com.slomaxonical.architectspalette.registry.util.StoneBlockSet.SetComponent.*;
 
 public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public APBlockLootTableProvider(FabricDataGenerator dataGenerator) {
-        super(dataGenerator);
+    public APBlockLootTableProvider(FabricDataOutput dataOutput) {
+        super(dataOutput);
     }
 
     public void dropSlabWithSilkTouch(Block drop) {
@@ -44,7 +43,7 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                                                 .exactMatch(SlabBlock.TYPE, SlabType.DOUBLE))))))));
     }
     @Override
-    protected void generateBlockLootTables() {
+    public void generate() {
         for (StoneBlockSet set : RegistryUtil.BlockSets.values()){
             if (set.getBase() == APBlocks.POLISHED_PACKED_ICE){
                 this.addDropWithSilkTouch(set.getBase());
@@ -57,8 +56,8 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 if (set.getPart(STAIRS)!=null) this.addDrop(set.getPart(STAIRS));
                 if (set.getPart(WALL)!=null) this.addDrop(set.getPart(WALL));
                 if (set.getPart(SLAB)!=null) {
-                    this.addDrop(set.getPart(SLAB), BlockLootTableGenerator::slabDrops);
-                    this.addDrop(set.getPart(VERTICAL_SLAB), BlockLootTableGenerator::slabDrops);
+                    this.addDrop(set.getPart(SLAB), this::slabDrops);
+                    this.addDrop(set.getPart(VERTICAL_SLAB), this::slabDrops);
                 }
                 if (set.getPart(FENCE)!=null) this.addDrop(set.getPart(FENCE));
                 if (set.getPart(NUB)!=null) this.addDrop(set.getPart(NUB));
@@ -68,7 +67,7 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
             this.addDrop(set.getBase());
             this.addDrop(set.getPart(STAIRS));
             this.addDrop(set.getPart(WALL));
-            this.addDrop(set.getPart(SLAB), BlockLootTableGenerator::slabDrops);
+            this.addDrop(set.getPart(SLAB), this::slabDrops);
         }
         for (List<Block> list : RegistryUtil.chiseledNcrackedOres.values()) list.forEach(this::addDrop); ;
         for (Block nub : RegistryUtil.nubs.keySet()) this.addDrop(nub);
@@ -78,12 +77,10 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.ABYSSALINE_PLATING,
                 APBlocks.ABYSSALINE_LAMP,
                 APBlocks.ABYSSALINE_PILLAR,
-                APBlocks.ACACIA_BOARDS,
                 APBlocks.ACACIA_RAILING,
                 APBlocks.ACACIA_TOTEM_WING,
                 APBlocks.ALGAL_CAGE_LANTERN,
                 APBlocks.ALGAL_LAMP,
-                APBlocks.BIRCH_BOARDS,
                 APBlocks.BIRCH_RAILING,
                 APBlocks.BLANK_ACACIA_TOTEM,
                 APBlocks.CALCITE_LAMP,
@@ -110,9 +107,7 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.CRACKED_END_STONE_BRICKS,
                 APBlocks.CRACKED_OLIVESTONE_BRICKS,
                 APBlocks.CRACKED_OLIVESTONE_TILES,
-                APBlocks.CRIMSON_BOARDS,
                 APBlocks.CRIMSON_RAILING,
-                APBlocks.DARK_OAK_BOARDS,
                 APBlocks.DARK_OAK_RAILING,
                 APBlocks.DRIPSTONE_LAMP,
                 APBlocks.DRIPSTONE_PILLAR,
@@ -137,15 +132,12 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.HADALINE_PILLAR,
                 APBlocks.HADALINE_LAMP,
                 APBlocks.ILLUMINATED_OLIVESTONE,
-                APBlocks.JUNGLE_BOARDS,
                 APBlocks.JUNGLE_RAILING,
                 APBlocks.LIT_OSSEOUS_SKULL,
                 APBlocks.LIT_WITHERED_OSSEOUS_SKULL,
                 APBlocks.MOLTEN_NETHER_BRICKS,
                 APBlocks.MOONSTONE,
-                APBlocks.MANGROVE_BOARDS,
                 APBlocks.MANGROVE_RAILING,
-                APBlocks.OAK_BOARDS,
                 APBlocks.OAK_RAILING,
                 APBlocks.OLIVESTONE_PILLAR,
                 APBlocks.OSSEOUS_PILLAR,
@@ -160,7 +152,6 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.SCUTE_BLOCK,
                 APBlocks.SHOCKED_ACACIA_TOTEM,
                 APBlocks.SPOOL,
-                APBlocks.SPRUCE_BOARDS,
                 APBlocks.SPRUCE_RAILING,
                 APBlocks.STRIPPED_TWISTED_LOG,
                 APBlocks.STRIPPED_TWISTED_WOOD,
@@ -169,7 +160,6 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.SUNSTONE,
                 APBlocks.TUFF_LAMP,
                 APBlocks.TUFF_PILLAR,
-                APBlocks.TWISTED_BOARDS,
                 APBlocks.TWISTED_BUTTON,
                 APBlocks.TWISTED_FENCE,
                 APBlocks.TWISTED_FENCE_GATE,
@@ -181,7 +171,6 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
                 APBlocks.TWISTED_WOOD,
                 APBlocks.TWISTING_BLACKSTONE,
                 APBlocks.TWISTING_BLACKSTONE_BRICKS,
-                APBlocks.WARPED_BOARDS,
                 APBlocks.WARPED_RAILING,
                 APBlocks.WEEPING_BLACKSTONE,
                 APBlocks.WEEPING_BLACKSTONE_BRICKS,
@@ -222,9 +211,9 @@ public class APBlockLootTableProvider extends FabricBlockLootTableProvider {
             APBlocks.PACKED_ICE_PILLAR)
         .forEach(this::addDropWithSilkTouch);
 
-        this.addDrop(APBlocks.TWISTED_DOOR, BlockLootTableGenerator::doorDrops);
-        this.addDrop(APBlocks.TWISTED_LEAVES, (blockx) -> BlockLootTableGenerator.leavesDrop(blockx, APBlocks.TWISTED_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
-        this.addPottedPlantDrop(APBlocks.POTTED_TWISTED_SAPLING);
+        this.addDrop(APBlocks.TWISTED_DOOR, this::doorDrops);
+        this.addDrop(APBlocks.TWISTED_LEAVES, (blockx) -> this.leavesDrops(blockx, APBlocks.TWISTED_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
+        this.addPottedPlantDrops(APBlocks.POTTED_TWISTED_SAPLING);
 
     }
 }

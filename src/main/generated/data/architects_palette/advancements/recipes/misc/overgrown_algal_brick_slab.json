@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_overgrown_algal_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:overgrown_algal_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "architects_palette:overgrown_algal_brick_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_overgrown_algal_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "architects_palette:overgrown_algal_brick_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

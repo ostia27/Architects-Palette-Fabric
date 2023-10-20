@@ -5,7 +5,9 @@ import com.slomaxonical.architectspalette.blocks.VerticalSlabBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +29,7 @@ public class StoneBlockSet {
         //Piece of crap array list doesn't let me preallocate indices ((if it can, you should let me know))
         while(this.parts.size() < values().length) this.parts.add(null);
 
-        this.material_name = getMaterialFromBlock(Registry.BLOCK.getId(base_block).getPath());
+        this.material_name = getMaterialFromBlock(Registries.BLOCK.getId(base_block).getPath());
         setPart(BLOCK, base_block);
         Arrays.stream(parts).forEachOrdered(this::createPart);
 
@@ -67,21 +69,21 @@ public class StoneBlockSet {
         return parts.stream().filter(Objects::nonNull);//.map(RegistryObject::get);
     }
     public enum SetComponent {
-        BLOCK("", ItemGroup.BUILDING_BLOCKS),
-        SLAB("_slab", ItemGroup.BUILDING_BLOCKS),
-        VERTICAL_SLAB("_vertical_slab", ItemGroup.BUILDING_BLOCKS),
-        STAIRS("_stairs", ItemGroup.BUILDING_BLOCKS),
-        WALL("_wall", ItemGroup.DECORATIONS),
-        FENCE("_fence", ItemGroup.DECORATIONS),
-        PILLAR(SetComponent::pillarName, ItemGroup.BUILDING_BLOCKS),
-        NUB("_nub", ItemGroup.DECORATIONS);
+        BLOCK("", ItemGroups.BUILDING_BLOCKS),
+        SLAB("_slab", ItemGroups.BUILDING_BLOCKS),
+        VERTICAL_SLAB("_vertical_slab", ItemGroups.BUILDING_BLOCKS),
+        STAIRS("_stairs", ItemGroups.BUILDING_BLOCKS),
+        WALL("_wall", ItemGroups.BUILDING_BLOCKS),
+        FENCE("_fence", ItemGroups.BUILDING_BLOCKS),
+        PILLAR(SetComponent::pillarName, ItemGroups.BUILDING_BLOCKS),
+        NUB("_nub", ItemGroups.BUILDING_BLOCKS);
 
-        public final ItemGroup tab;
+        public final RegistryKey<ItemGroup> tab;
         public final Function<String, String> nameGenerator;
-        SetComponent(String suffix,ItemGroup tab) {
+        SetComponent(String suffix, RegistryKey<ItemGroup> tab) {
             this((material) -> addSuffix(material, suffix), tab);
         }
-        SetComponent(Function<String, String> nameGen, ItemGroup tab) {
+        SetComponent(Function<String, String> nameGen, RegistryKey<ItemGroup> tab) {
             this.nameGenerator = nameGen;
             this.tab = tab;
         }

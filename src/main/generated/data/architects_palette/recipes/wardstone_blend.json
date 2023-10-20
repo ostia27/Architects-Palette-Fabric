@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "$": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "architects_palette:wardstone_blend"
+  },
+  "show_notification": true
+}

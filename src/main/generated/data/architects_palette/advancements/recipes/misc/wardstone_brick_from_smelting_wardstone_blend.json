@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:wardstone_brick_from_smelting_wardstone_blend"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wardstone_blend": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:wardstone_blend"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wardstone_blend",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:wardstone_brick_from_smelting_wardstone_blend"
+    ]
+  },
+  "sends_telemetry_event": false
+}

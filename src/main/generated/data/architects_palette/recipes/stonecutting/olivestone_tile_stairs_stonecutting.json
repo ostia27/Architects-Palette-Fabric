@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "architects_palette:olivestone_tiles"
+  },
+  "result": "architects_palette:olivestone_tile_stairs"
+}

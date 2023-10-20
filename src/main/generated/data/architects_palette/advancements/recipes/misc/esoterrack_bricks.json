@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_esoterrack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:esoterrack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "architects_palette:esoterrack_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_esoterrack",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "architects_palette:esoterrack_bricks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

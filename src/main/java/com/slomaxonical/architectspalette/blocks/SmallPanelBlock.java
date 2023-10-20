@@ -39,7 +39,7 @@ public class SmallPanelBlock extends Block implements Waterloggable {
     }
 
     public SmallPanelBlock(Settings settings) {
-        super(settings);
+        super(settings.pistonBehavior(PistonBehavior.DESTROY));
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED,false));
     }
 
@@ -84,7 +84,7 @@ public class SmallPanelBlock extends Block implements Waterloggable {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         if (state.get(FACING) == facing && !state.canPlaceAt(world, pos)) {return Blocks.AIR.getDefaultState();}
         return state;
@@ -94,10 +94,5 @@ public class SmallPanelBlock extends Block implements Waterloggable {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         Direction direction = state.get(FACING);
         return !world.getBlockState(pos.offset(direction)).isAir();
-    }
-
-    @Override
-    public PistonBehavior getPistonBehavior(BlockState state) {
-        return PistonBehavior.DESTROY;
     }
 }

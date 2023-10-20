@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "architects_palette:abyssaline"
+  },
+  "result": "architects_palette:abyssaline_plating"
+}

@@ -47,7 +47,7 @@ public class AbyssalineStairsBlock extends StairsBlock implements IAbyssalineCha
 
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
-		context.getWorld().createAndScheduleBlockTick(context.getBlockPos(), this, 1);
+		context.getWorld().scheduleBlockTick(context.getBlockPos(), this, 1);
 		return super.getPlacementState(context);
 	}
 

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "architects_palette:warpstone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warpstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "architects_palette:warpstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warpstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "architects_palette:warpstone_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

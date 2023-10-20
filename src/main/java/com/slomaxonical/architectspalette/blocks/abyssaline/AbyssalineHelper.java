@@ -181,7 +181,7 @@ public class AbyssalineHelper {
         boolean interested = (!thiz.isCharged(stateIn) && neighborBlock instanceof IAbyssalineChargeable)
                 || !isValidConnection(stateIn, worldIn.getBlockState(pos.add(thiz.getSourceOffset(stateIn))), thiz.getSourceDirection(stateIn));
         if (neighborPos.equals(pos.add(thiz.getSourceOffset(stateIn))) || interested)
-            worldIn.createAndScheduleBlockTick(pos, (Block) thiz, 1);
+            worldIn.scheduleBlockTick(pos, (Block) thiz, 1);
     }
 
 

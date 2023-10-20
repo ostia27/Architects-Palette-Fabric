@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:smooth_stone"
+  },
+  "result": "architects_palette:smooth_stone_nub"
+}

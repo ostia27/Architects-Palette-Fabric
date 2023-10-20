@@ -2,24 +2,22 @@ package com.slomaxonical.architectspalette.particles;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.particle.*;
-import net.minecraft.client.render.Camera;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.WorldRenderer;
-import net.minecraft.client.texture.Sprite;
+import net.minecraft.client.particle.ParticleTextureSheet;
+import net.minecraft.client.particle.SpriteBillboardParticle;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Quaternion;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3f;
-import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)
 public class WizardParticle extends SpriteBillboardParticle {
+    protected WizardParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
+        super(clientWorld, d, e, f, g, h, i);
+    }
+
+    @Override
+    public ParticleTextureSheet getType() {
+        return ParticleTextureSheet.PARTICLE_SHEET_OPAQUE;
+    }
+
+    /*
         protected SpriteProvider sprites;
         private final Quaternion rotation;
         private static final Vec3d DEFAULT_PARTICLE_DIRECTION = new Vec3d(0, 0, -1);
@@ -111,4 +109,5 @@ public class WizardParticle extends SpriteBillboardParticle {
             return new WizardParticle(world,x, y, z, velocityX, velocityY, velocityZ, spriteProvider);
         }
     }
+     */
 }
