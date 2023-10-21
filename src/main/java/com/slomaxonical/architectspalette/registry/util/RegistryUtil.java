@@ -13,13 +13,9 @@ import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.Oxidizable;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,10 +56,6 @@ public class RegistryUtil {
     }
     //Create Blocks
     public static <B extends Block> B createBlock(String name, B anyBlock) {
-        return createBlock(name, anyBlock, ItemGroups.BUILDING_BLOCKS);
-    }
-
-    public static <B extends Block> B createBlock(String name, B anyBlock, @Nullable RegistryKey<ItemGroup> group) {
         B block = Registry.register(Registries.BLOCK, new Identifier(ArchitectsPalette.MOD_ID, name), anyBlock);
 
         BlockItem blockItem = !(name.contains("vertical") && !CONFIGS.enableVerticalSlabs())

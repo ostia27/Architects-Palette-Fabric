@@ -4,10 +4,7 @@ import com.slomaxonical.architectspalette.blocks.NubBlock;
 import com.slomaxonical.architectspalette.blocks.VerticalSlabBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,23 +66,21 @@ public class StoneBlockSet {
         return parts.stream().filter(Objects::nonNull);//.map(RegistryObject::get);
     }
     public enum SetComponent {
-        BLOCK("", ItemGroups.BUILDING_BLOCKS),
-        SLAB("_slab", ItemGroups.BUILDING_BLOCKS),
-        VERTICAL_SLAB("_vertical_slab", ItemGroups.BUILDING_BLOCKS),
-        STAIRS("_stairs", ItemGroups.BUILDING_BLOCKS),
-        WALL("_wall", ItemGroups.BUILDING_BLOCKS),
-        FENCE("_fence", ItemGroups.BUILDING_BLOCKS),
-        PILLAR(SetComponent::pillarName, ItemGroups.BUILDING_BLOCKS),
-        NUB("_nub", ItemGroups.BUILDING_BLOCKS);
+        BLOCK(""),
+        SLAB("_slab"),
+        VERTICAL_SLAB("_vertical_slab"),
+        STAIRS("_stairs"),
+        WALL("_wall"),
+        FENCE("_fence"),
+        PILLAR(SetComponent::pillarName),
+        NUB("_nub");
 
-        public final RegistryKey<ItemGroup> tab;
         public final Function<String, String> nameGenerator;
-        SetComponent(String suffix, RegistryKey<ItemGroup> tab) {
-            this((material) -> addSuffix(material, suffix), tab);
+        SetComponent(String suffix) {
+            this((material) -> addSuffix(material, suffix));
         }
-        SetComponent(Function<String, String> nameGen, RegistryKey<ItemGroup> tab) {
+        SetComponent(Function<String, String> nameGen) {
             this.nameGenerator = nameGen;
-            this.tab = tab;
         }
         public String getName(String material) {
             return nameGenerator.apply(material);
