@@ -1,6 +1,7 @@
-// 1.20.1	2023-11-23T10:48:59.98448	Architect's Palette Fabric/Dynamic Registries
+// 1.20.1	2023-11-23T11:06:14.645598	Architect's Palette Fabric/Dynamic Registries
 d40cbd6464c7d7fb7087374a7b71021ff9ae63e8 data/architects_palette/worldgen/configured_feature/hanging_monazite_cluster.json
 c1764f907b7f1b0c22c0e707f2d207f8dcfc2740 data/architects_palette/worldgen/configured_feature/ekanite_cluster.json
+93784a508b9991d3ed651580d94b30f8572b64c0 data/architects_palette/worldgen/configured_feature/twisted_tree.json
 78d29c9f0996aa37cc08333bc686557d49b5f499 data/architects_palette/worldgen/placed_feature/heliodor_cluster.json
 000796b3e7f4fe7cf5cba49c9cc924faac83389a data/architects_palette/worldgen/placed_feature/ekanite_cluster.json
 e455a3831c31c22b633ed593f364a602a2077c3c data/architects_palette/worldgen/configured_feature/grounded_monazite_cluster.json

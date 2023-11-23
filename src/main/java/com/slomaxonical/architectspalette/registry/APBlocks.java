@@ -11,7 +11,7 @@ import com.slomaxonical.architectspalette.blocks.flint.FlintBlock;
 import com.slomaxonical.architectspalette.blocks.flint.FlintPillarBlock;
 import com.slomaxonical.architectspalette.blocks.util.APBlockSettings;
 import com.slomaxonical.architectspalette.blocks.util.DirectionalFacingBlock;
-import com.slomaxonical.architectspalette.features.TwistedTree;
+import com.slomaxonical.architectspalette.features.TwistedTreeSaplingGenerator;
 import com.slomaxonical.architectspalette.registry.util.BlockSetBase;
 import com.slomaxonical.architectspalette.registry.util.ChangeGroup;
 import com.slomaxonical.architectspalette.registry.util.RegistryUtil;
@@ -311,7 +311,7 @@ public class APBlocks implements BlockRegistryContainer {
 
 
     @ChangeGroup
-    public static final Block TWISTED_SAPLING = new SaplingBlock(new TwistedTree(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
+    public static final Block TWISTED_SAPLING = new SaplingBlock(new TwistedTreeSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     @NoBlockItem
     public static final Block POTTED_TWISTED_SAPLING = RegistryUtil.createPottedPlant(TWISTED_SAPLING);
     //unobtanium

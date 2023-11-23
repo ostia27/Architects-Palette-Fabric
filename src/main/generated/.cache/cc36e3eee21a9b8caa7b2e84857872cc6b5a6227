@@ -1,13 +1,13 @@
-// 1.20.1	2023-11-23T10:48:59.985183	Architect's Palette Fabric/Tags for minecraft:block
+// 1.20.1	2023-11-23T11:06:14.646246	Architect's Palette Fabric/Tags for minecraft:block
 dfb81582a51317152062c1aae33a8c87e4b5cddb data/minecraft/tags/blocks/dragon_immune.json
 0813aaaf551033f30824090a59ee43777fdc9ed8 data/minecraft/tags/blocks/mineable/shovel.json
 2ca866185083a80a57e38bc82f986dbbe7af088a data/minecraft/tags/blocks/fire.json
 fc29e6b5ce4ecf610a0def6455c5e307bb3060da data/minecraft/tags/blocks/wooden_buttons.json
-08dad584923a2e911d4f3547f31268a5304d7120 data/minecraft/tags/blocks/wooden_slabs.json
 6e900ba410c165c5cb7a22b819a30520d210dd96 data/minecraft/tags/blocks/wooden_doors.json
+08dad584923a2e911d4f3547f31268a5304d7120 data/minecraft/tags/blocks/wooden_slabs.json
 a79b827a72dc4c74a00aeac058628350526a2898 data/minecraft/tags/blocks/needs_diamond_tool.json
-96378ea98d2f4eefe6b231727aa67d6b1302fcb3 data/minecraft/tags/blocks/walls.json
-5be74823adf409155ff055178d20ec504a22f166 data/architects_palette/tags/blocks/nubs.json
+12221ee4acf6c1f474b5d216c75d283997eb4812 data/architects_palette/tags/blocks/nubs.json
+88cb6f17be5e8da5f277789ef85a8ddbe75e49fd data/minecraft/tags/blocks/walls.json
 37ab0c176791467e2ed98a13a19e9d15ba99834c data/minecraft/tags/blocks/wooden_trapdoors.json
 a773b51870143f64989bab970f59f859f9713199 data/minecraft/tags/blocks/mushroom_grow_block.json
 1d8100496c79df3afcabcc6b7aea8e2fc478cd90 data/architects_palette/tags/blocks/crystal_formation_replaceable.json
@@ -20,16 +20,16 @@ c20769218e92884f3c3d4d97393649a664177530 data/minecraft/tags/blocks/wooden_stair
 258d0f8e0c5d5b4b4286ab8d3a3712f3a768a34c data/minecraft/tags/blocks/logs_that_burn.json
 a2a61bfa9a14a9d3ec219d1b9533913a5f23dc6e data/minecraft/tags/blocks/wall_post_override.json
 5fa8f8ce083f3904105f01a5ea8eb963b4aeaa16 data/architects_palette/tags/blocks/cage_lanterns.json
-09eca084429f373be9ed4f8fcff79dcfee961aed data/minecraft/tags/blocks/mineable/hoe.json
 400a7ad9e8b1722296e26bb6d91b15407202041a data/minecraft/tags/blocks/mineable/axe.json
+09eca084429f373be9ed4f8fcff79dcfee961aed data/minecraft/tags/blocks/mineable/hoe.json
 a0b764453de65b3847bc47245fc08ec0386394c0 data/architects_palette/tags/blocks/green_fire_supporting.json
 eeb881c969e814cffd2134b862935eb8ca6ec05e data/minecraft/tags/blocks/needs_stone_tool.json
 5661424446546d14cb5c2f15a77e9c866982ecdc data/minecraft/tags/blocks/wooden_fences.json
 ffaa6b40f3da3126cd854c143db1c5d403399a9f data/minecraft/tags/blocks/planks.json
-8e74140d32001e43865eafd01103b798bdc7c496 data/minecraft/tags/blocks/mineable/pickaxe.json
-81058fcb59cd381816b7626b0e776665813ac9b9 data/minecraft/tags/blocks/slabs.json
+75e7d24bf5096be4fd116fb0d6967404500388d7 data/minecraft/tags/blocks/mineable/pickaxe.json
+bf739f70cf2f3cd3f16bc8ab6ee5fb6d96993575 data/minecraft/tags/blocks/slabs.json
 d0d265df922f588d3db6f73a4c2f0847625f272f data/minecraft/tags/blocks/wooden_pressure_plates.json
 2d0b470c3be7d0e5c90a29a6f31feca13c21b61a data/minecraft/tags/blocks/flower_pots.json
 e4915c209c736bca3d09a615d5317f91bbf4ff32 data/minecraft/tags/blocks/fence_gates.json
 945a45cd807de22616221b591fbaacaa56286c93 data/minecraft/tags/blocks/fences.json
-44cea90ffbb889dcf719e9df0011fcf2655087d4 data/minecraft/tags/blocks/stairs.json
+722c2880bcf9052260d3970bf044775b96040ed8 data/minecraft/tags/blocks/stairs.json
