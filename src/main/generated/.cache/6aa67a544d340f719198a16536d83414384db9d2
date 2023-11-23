@@ -1,20 +1,20 @@
-// 1.20.1	2023-10-21T16:43:13.612755	Architect's Palette Fabric/Tags for minecraft:item
-d0d265df922f588d3db6f73a4c2f0847625f272f data/minecraft/tags/items/wooden_pressure_plates.json
-ffaa6b40f3da3126cd854c143db1c5d403399a9f data/minecraft/tags/items/planks.json
-03e4e3c2eca66efafe2ca6b39a71dadbc963d8e9 data/minecraft/tags/items/walls.json
-08dad584923a2e911d4f3547f31268a5304d7120 data/minecraft/tags/items/wooden_slabs.json
-31e97a112999f7620e3426d94d22048630c4e87f data/architects_palette/tags/items/olivestone_slabs.json
+// 1.20.1	2023-11-23T10:48:59.963823	Architect's Palette Fabric/Tags for minecraft:item
 caa65214e42ad067ce1935d9b7d48e0a9feb9e73 data/c/tags/items/mushrooms.json
-314955fb1898a4bbac2f9b31bc46d4ccca1d9ee8 data/minecraft/tags/items/saplings.json
-5661424446546d14cb5c2f15a77e9c866982ecdc data/minecraft/tags/items/wooden_fences.json
+81058fcb59cd381816b7626b0e776665813ac9b9 data/minecraft/tags/items/slabs.json
+d0d265df922f588d3db6f73a4c2f0847625f272f data/minecraft/tags/items/wooden_pressure_plates.json
+08dad584923a2e911d4f3547f31268a5304d7120 data/minecraft/tags/items/wooden_slabs.json
 465b9215a5a24928fd8bb76931791fb79fb1c520 data/architects_palette/tags/items/olivestone.json
-9761c426480f15d4c7c9cd7d9527683c91801f87 data/minecraft/tags/items/slabs.json
-fc29e6b5ce4ecf610a0def6455c5e307bb3060da data/minecraft/tags/items/wooden_buttons.json
-258d0f8e0c5d5b4b4286ab8d3a3712f3a768a34c data/minecraft/tags/items/logs_that_burn.json
-6480fb65bca275d9d00436e918969d7d0965da90 data/architects_palette/tags/items/twisted_logs.json
-6aecd6b9faf35c35b1fbf3cbee0c89c76f98d4a0 data/minecraft/tags/items/leaves.json
-6e900ba410c165c5cb7a22b819a30520d210dd96 data/minecraft/tags/items/wooden_doors.json
-7bcfd92ccbe720509244979ad3cee5c9b9215023 data/minecraft/tags/items/stairs.json
-c20769218e92884f3c3d4d97393649a664177530 data/minecraft/tags/items/wooden_stairs.json
-37ab0c176791467e2ed98a13a19e9d15ba99834c data/minecraft/tags/items/wooden_trapdoors.json
 cd593a5a86cba44ae2554298ae1383b0051093b3 data/c/tags/items/withered_bones.json
+6aecd6b9faf35c35b1fbf3cbee0c89c76f98d4a0 data/minecraft/tags/items/leaves.json
+258d0f8e0c5d5b4b4286ab8d3a3712f3a768a34c data/minecraft/tags/items/logs_that_burn.json
+fc29e6b5ce4ecf610a0def6455c5e307bb3060da data/minecraft/tags/items/wooden_buttons.json
+44cea90ffbb889dcf719e9df0011fcf2655087d4 data/minecraft/tags/items/stairs.json
+96378ea98d2f4eefe6b231727aa67d6b1302fcb3 data/minecraft/tags/items/walls.json
+314955fb1898a4bbac2f9b31bc46d4ccca1d9ee8 data/minecraft/tags/items/saplings.json
+6480fb65bca275d9d00436e918969d7d0965da90 data/architects_palette/tags/items/twisted_logs.json
+37ab0c176791467e2ed98a13a19e9d15ba99834c data/minecraft/tags/items/wooden_trapdoors.json
+ffaa6b40f3da3126cd854c143db1c5d403399a9f data/minecraft/tags/items/planks.json
+5661424446546d14cb5c2f15a77e9c866982ecdc data/minecraft/tags/items/wooden_fences.json
+31e97a112999f7620e3426d94d22048630c4e87f data/architects_palette/tags/items/olivestone_slabs.json
+c20769218e92884f3c3d4d97393649a664177530 data/minecraft/tags/items/wooden_stairs.json
+6e900ba410c165c5cb7a22b819a30520d210dd96 data/minecraft/tags/items/wooden_doors.json

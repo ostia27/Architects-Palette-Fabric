@@ -11,8 +11,7 @@ public class APFeatures {
     public static final Feature<CrystalClusterConfig> CRYSTAL_CLUSTER = new CrystalClusterFeature(CrystalClusterConfig.CODEC);
 
     public static void register(){
-       Registry.register(Registries.FEATURE, new Identifier(ArchitectsPalette.MOD_ID,"crystal_cluster"), CRYSTAL_CLUSTER);
+       Registry.register(Registries.FEATURE, new Identifier(ArchitectsPalette.MOD_ID, "crystal_cluster"), CRYSTAL_CLUSTER);
        //Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ArchitectsPalette.MOD_ID, "twisted"), TWISTED_TREE);
-
     }
 }

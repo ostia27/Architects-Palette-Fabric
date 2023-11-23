@@ -2,7 +2,9 @@ package com.slomaxonical.architectspalette;
 
 import com.slomaxonical.architectspalette.config.APConfigs;
 import com.slomaxonical.architectspalette.crafting.WarpingRecipe;
+import com.slomaxonical.architectspalette.features.APConfiguredFeatures;
 import com.slomaxonical.architectspalette.features.APFeatures;
+import com.slomaxonical.architectspalette.features.APPlacedFeatures;
 import com.slomaxonical.architectspalette.loot.LootTableModifications;
 import com.slomaxonical.architectspalette.registry.*;
 import io.wispforest.owo.itemgroup.Icon;
@@ -47,7 +49,8 @@ public class ArchitectsPalette implements ModInitializer {
         APTrades.registerWanderingTrades();
 
         APFeatures.register();
-        //APConfiguredFeatures.registerBiomeModifications();
+        APConfiguredFeatures.register();
+        APPlacedFeatures.register();
         LootTableModifications.registerWitheredBones();
     }
 }

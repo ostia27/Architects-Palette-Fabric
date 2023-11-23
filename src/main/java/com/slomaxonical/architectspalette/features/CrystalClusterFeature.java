@@ -1,8 +1,21 @@
 package com.slomaxonical.architectspalette.features;
 
 import com.mojang.serialization.Codec;
+import com.slomaxonical.architectspalette.registry.APTags;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import org.joml.Vector3f;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CrystalClusterFeature extends Feature<CrystalClusterConfig> {
     public CrystalClusterFeature(Codec<CrystalClusterConfig> configCodec) {
@@ -11,18 +24,12 @@ public class CrystalClusterFeature extends Feature<CrystalClusterConfig> {
 
     @Override
     public boolean generate(FeatureContext<CrystalClusterConfig> context) {
-        return false;
-    }
-
-    /*
-    @Override
-    public boolean generate(FeatureContext<CrystalClusterConfig> context) {
         //Check for free space
         if (!context.getWorld().isAir(context.getOrigin())) return false;
-        if (context.getConfig().hanging()){
+        if (context.getConfig().hanging()) {
             //Check for being on a ceiling
             if (context.getWorld().isAir(context.getOrigin().up())) return false;
-        }else {
+        } else {
             //check for being on a floor
             if (context.getWorld().isAir(context.getOrigin().down())) return false;
         }
@@ -31,14 +38,14 @@ public class CrystalClusterFeature extends Feature<CrystalClusterConfig> {
         Random random = context.getRandom();
 
         //Set horizontal angle used to skew the shelves of crystals
-        Vec3f shelfAngle = Vec3f.NEGATIVE_X.copy();
-        shelfAngle.rotate(Vec3f.POSITIVE_Y. getDegreesQuaternion(random.nextFloat() * 360));
+        Vector3f shelfAngle = new Vector3f(-1, 0, 0);
+        shelfAngle.rotate(RotationAxis.POSITIVE_Y.rotationDegrees(random.nextFloat() * 360));
 
         //Set horizontal angle that determines the spaces between shelves
-        Vec3f formationAngle = shelfAngle.copy();
-        formationAngle.rotate(Vec3f.POSITIVE_Y.getDegreesQuaternion(fRandomRange(random,-15,15) + 90));
+        Vector3f formationAngle = new Vector3f(shelfAngle);
+        formationAngle.rotate(RotationAxis.POSITIVE_Y.rotationDegrees(fRandomRange(random,-15,15) + 90));
 
-        Vec3f placePos = new Vec3f(context.getOrigin().getX(), context.getOrigin().getY(), context.getOrigin().getZ());
+        Vector3f placePos = new Vector3f(context.getOrigin().getX(), context.getOrigin().getY(), context.getOrigin().getZ());
 
         List<BlockPos> posList = new ArrayList<>(List.of());
         //4-7 shelves
@@ -47,42 +54,41 @@ public class CrystalClusterFeature extends Feature<CrystalClusterConfig> {
             float scale = ((float)i+1)/shelves;
             //1-7 pillars each shelf
             int pillars = iRandomRange(random,1,7);
-            placeShelf(new BlockPos(placePos.getX(), placePos.getY(), placePos.getZ()), pillars, shelfAngle, scale, context,posList);
+            placeShelf(new BlockPos((int) placePos.x(), (int) placePos.y(), (int) placePos.z()), pillars, shelfAngle, scale, context,posList);
 
             //Offset next shelf position
             formationAngle.normalize();
-            formationAngle.scale(fRandomRange(random,0.5F,2));
+            formationAngle.mul(fRandomRange(random,0.5F,2));
             placePos.add(formationAngle);
         }
-        for (BlockPos pos: posList){
+        for (BlockPos pos: posList) {
             tryPlaceExtrusion(pos, context.getWorld(), config.extrusionState(), config.crystalState().getBlock(), config.hanging()? 1 : -1, random);
         }
         return true;
     }
-    private static void placeShelf(BlockPos startPos, int crystals, Vec3f shelfAngle, float shelfScale, FeatureContext<CrystalClusterConfig> context, List<BlockPos> crystalList) {
+    private static void placeShelf(BlockPos startPos, int crystals, Vector3f shelfAngle, float shelfScale, FeatureContext<CrystalClusterConfig> context, List<BlockPos> crystalList) {
         Random random = context.getRandom();
         CrystalClusterConfig config = context.getConfig();
         StructureWorldAccess world = context.getWorld();
 
         int flip = config.hanging() ? 1 : -1;
-        Vec3f placePos = new Vec3f(startPos.getX(), startPos.getY(), startPos.getZ());
+        Vector3f placePos = new Vector3f(startPos.getX(), startPos.getY(), startPos.getZ());
         placePos.add(0, -2*flip, 0);
 
         for (int i = 0; i < crystals; i++) {
-
-            Vec3f offset = shelfAngle.copy();
-            offset.scale(fRandomRange(random,0.5F,2.5F));
+            Vector3f offset = new Vector3f(shelfAngle);
+            offset.mul(fRandomRange(random,0.5F,2.5F));
 
             placePos.add(offset);
 
             int pillarLength = config.minLength() + random.nextInt((int)(Math.floor((config.maxLength()- config.minLength())*shelfScale)) + 1);
-            placePillar(new BlockPos.Mutable(placePos.getX(), placePos.getY(), placePos.getZ()), pillarLength, world, context, flip, crystalList);
+            placePillar(new BlockPos.Mutable(placePos.x(), placePos.y(), placePos.z()), pillarLength, world, context, flip, crystalList);
 
-            if (pillarLength > (config.maxLength() - config.minLength())/2 && random.nextBoolean()) {
+            if (pillarLength > (config.maxLength() - config.minLength()) / 2 && random.nextBoolean()) {
                 BlockPos.Mutable pos = new BlockPos.Mutable(
-                        placePos.getX() + iRandomRange(random,-1,1),
-                        placePos.getY() + iRandomRange(random,-1,1),
-                        placePos.getZ() + iRandomRange(random,-1,1));
+                        placePos.x() + iRandomRange(random,-1,1),
+                        placePos.y() + iRandomRange(random,-1,1),
+                        placePos.z() + iRandomRange(random,-1,1));
                 placePillar(pos,pillarLength/2, world, context,flip,crystalList);
             }
         }
@@ -157,7 +163,6 @@ public class CrystalClusterFeature extends Feature<CrystalClusterConfig> {
     }
 
     private static boolean canReplace(BlockState state) {
-        return state.isAir() || state.getMaterial().isReplaceable() || state.isIn(APTags.CRYSTAL_REPLACEABLE);
+        return state.isAir() || state.isReplaceable() || state.isIn(APTags.CRYSTAL_REPLACEABLE);
     }
-     */
 }
