@@ -3,13 +3,14 @@
   "id": "architects_palette",
   "version": "${version}",
   "name": "Architect's Palette Fabric",
-  "description": "A mod that adds new stylish and unique building blocks. This is a port of jsburg's mod",
+  "description": "A mod that adds new stylish and unique building blocks. This is a port of Jsburg's mod",
   "authors": [
-    "Jsburg",
-    "Slomaxonical"
+    "Jsburg (author)",
+    "Slomaxonical (Fabric port)",
+    "unilock (1.20.1 update)"
   ],
   "contact": {
-    "sources": "https://github.com/Slomaxonical-907/Architects-Palette-Fabric"
+    "sources": "https://github.com/unilock/Architects-Palette-Fabric"
   },
   "license": "LGPL-3.0-only",
   "icon": "assets/architects_palette/icon.png",
@@ -36,8 +37,9 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "fabric": "*",
-    "minecraft": ">=1.20.1"
+    "minecraft": ">=1.20.1",
+    "fabric-api": "*",
+    "owo": "*"
   },
   "accessWidener": "architectspalette.accesswidener"
 }
